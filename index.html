@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoConecta: Trabalhando no Presente para Viver no Futuro</title>
+    <!-- Estilos e fontes -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Roboto:wght@700&display=swap">
+</head>
+<body class="preload">
+    
+    <!-- Tela de Carregamento -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Cabeçalho com Navegação Principal -->
+    <header>
+        <nav aria-label="Menu principal">
+            <h1 class="title">EcoConecta: Tecnologia e Inovação a Serviço da Sustentabilidade</h1>
+            <ul>
+                <li><a href="index.html" aria-label="Início">Início</a></li>
+                <li><a href="sobre.html" aria-label="Sobre">Sobre</a></li>
+                <li><a href="objetivos.html" aria-label="Objetivos">Objetivos</a></li>
+                <li><a href="prática.html" aria-label="Prática">Prática</a></li>
+                <li><a href="resultados.html" aria-label="Resultados">Resultados</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Seção de Boas-Vindas -->
+        <section id="inicio" tabindex="0">
+            <h1>Bem-vindo ao EcoConecta!</h1>
+            <h2>Construindo um futuro sustentável juntos.</h2>
+            
+            <p>
+                O EcoConecta é um projeto inovador que visa transformar a maneira como os condomínios
+                residenciais de classe média se relacionam com o meio ambiente. Através de uma plataforma
+                digital interativa e ações de engajamento comunitário, o projeto busca promover a 
+                sustentabilidade, reduzir o impacto ambiental e melhorar a qualidade de vida dos moradores.
+            </p>
+            <br>
+            
+            
+            <h3>Com o EcoConecta, você terá acesso a:</h3>
+            <ul>
+                <li><b>Monitoramento inteligente:</b> acompanhe o consumo de água e energia do seu
+                    condomínio em tempo real e identifique oportunidades de economia.</li>
+                <li><b>Informações relevantes:</b> aprenda sobre práticas sustentáveis e como 
+                    implementá-las em seu dia a dia.</li>
+                <li><b>Comunidade engajada:</b> conecte-se com outros moradores, compartilhe ideias e 
+                    participe de ações para um futuro mais verde.</li>
+                <li><b>Gestão eficiente:</b> facilite a comunicação entre moradores e administração, 
+                    otimizando a gestão condominial.</li>
+            </ul>
+            
+            <p>Junte-se ao EcoConecta e faça parte da mudança!</p>
+            
+            <h2>Comece a construir um futuro mais sustentável para você hoje mesmo.</h2>
+        </section>
+        
+        <!-- Seção de Tecnologia Sustentável com Botões de Funções -->
+        <section id="tecnologia-sustentavel">
+            <div class="system-options">
+                <button class="button yellow" onclick="mostrarMensagem('energiaSolar')">Sistema de Energia Solar</button>
+                <button class="button green" onclick="mostrarMensagem('aguaChuva')">Sistema de Coleta de Água da Chuva</button>
+                <button class="button blue" onclick="mostrarMensagem('iluminacao')">Iluminação Inteligente</button>
+                <button class="button brown" onclick="mostrarMensagem('gestao')">Plataforma de Gestão Sustentável</button>
+            </div>
+          
+            <!-- Popup para Exibir a Descrição de Cada Sistema -->
+            <div id="popup" class="popup-overlay" onclick="fecharPopup()">
+                <div class="popup-content" onclick="event.stopPropagation()">
+                    <p id="popup-message"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé com Direitos Autorais -->
+    <footer>
+        <p>© 2024 EcoConecta. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

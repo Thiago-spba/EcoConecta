@@ -1,0 +1,236 @@
+/* Variáveis de cores e fontes */
+:root {
+  --primary-color: hwb(180 1% 93%);
+  --text-color: #01011b;
+  --overlay-color: rgba(0, 0, 0, 0.15); /* Reduz a opacidade para 15% */
+  --font-family: 'Open Sans', sans-serif;
+  --button-bg-color: #28a745;
+  --button-hover-bg-color: #218838;
+  --highlight-text-color: #556B2F;
+  --button-shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos gerais */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background: url('02nature.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Sobreposição leve para a página toda */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-color);
+  z-index: -1;
+}
+
+/* Header e Footer */
+header, footer {
+  width: 100%;
+  max-width: 800px;
+  color: var(--primary-color);
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Navegação Responsiva */
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+header nav ul li a {
+  display: inline-block;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: var(--button-bg-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+header nav ul li a:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+/* Conteúdo Principal */
+.section-content, main {
+  max-width: 800px;
+  padding: 2rem;
+  margin: 0 auto;
+  text-align: justify;
+  color: var(--text-color);
+}
+
+/* Títulos */
+h1, h2, h3 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Parágrafos e Listas */
+p {
+  margin-top: 1rem;
+}
+
+.section-content h1, .section-content h2 {
+  margin-bottom: 1rem;
+}
+
+.section-content p, .section-content ul {
+  margin-bottom: 1.5rem;
+}
+
+.section-content ul li {
+  margin-bottom: 1rem;
+}
+
+/* Botões com Cores Específicas */
+.button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  width: 100%;
+}
+
+.button.yellow { background-color: #ffc107; color: #333; }
+.button.green { background-color: var(--button-bg-color); }
+.button.blue { background-color: #17a2b8; }
+.button.brown { background-color: #A0522D; }
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+/* Sistema de Opções Responsivo */
+.system-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Estilos do Popup */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+}
+
+.popup-content p {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Estilo para a Seção de Boas-vindas */
+.welcome-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.eco-button h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px var(--button-shadow-color);
+}
+
+.eco-button p {
+  font-size: 1rem;
+  color: var(--text-color);
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px var(--button-shadow-color);
+}
+
+/* Botão "Saiba Mais" */
+.learn-more {
+  background-color: #ffffff;
+  color: var(--highlight-text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.learn-more:hover {
+  background-color: #323d1c;
+  color: #ffffff;
+}
+
+/* Responsividade para Dispositivos Menores */
+@media (max-width: 600px) {
+  header nav ul {
+    flex-direction: column;
+  }
+  
+  .system-options {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
