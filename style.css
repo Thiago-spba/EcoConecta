@@ -233,26 +233,36 @@ p {
     font-size: 0.9rem;
     padding: 0.6rem;
   }
+/* Estilo para o contador no canto superior direito sem fundo */
+#contador {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #333;
 }
+
 /* Animação de piscar para os números do contador */
 .contador-numeros {
-  animation: piscar 1s infinite alternate;
+    animation: piscar 1s infinite alternate;
 }
 
 /* Centraliza e posiciona a frase logo abaixo dos números */
 #contador p {
-  margin-top: 2px; /* Espaço pequeno entre o contador e a frase */
-  font-size: 0.85rem;
-  color: #333;
+    margin-top: 2px; /* Espaço pequeno entre o contador e a frase */
+    font-size: 0.85rem;
+    color: #333;
 }
 
 /* Definição da animação de piscar */
 @keyframes piscar {
-  from {
-      opacity: 1;
-  }
-  to {
-      opacity: 0;
-  }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
-
