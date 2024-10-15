@@ -234,3 +234,25 @@ p {
     padding: 0.6rem;
   }
 }
+/* Animação de piscar para os números do contador */
+.contador-numeros {
+  animation: piscar 1s infinite alternate;
+}
+
+/* Centraliza e posiciona a frase logo abaixo dos números */
+#contador p {
+  margin-top: 2px; /* Espaço pequeno entre o contador e a frase */
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Definição da animação de piscar */
+@keyframes piscar {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
