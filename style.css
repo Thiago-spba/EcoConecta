@@ -2,7 +2,7 @@
 :root {
   --primary-color: hwb(180 1% 93%);
   --text-color: #01011b;
-  --overlay-color: rgba(0, 0, 0, 0.15); /* Reduz a opacidade para 15% */
+  --overlay-color: rgba(0, 0, 0, 0.15);
   --font-family: 'Open Sans', sans-serif;
   --button-bg-color: #28a745;
   --button-hover-bg-color: #218838;
@@ -48,6 +48,38 @@ header, footer {
   color: var(--primary-color);
   padding: 1rem;
   text-align: center;
+  position: relative;
+}
+
+/* Contador Responsivo Alinhado no Header */
+#contador {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8); /* Fundo leve para visibilidade */
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contador-numeros {
+  animation: piscar 1s infinite alternate;
+}
+
+/* Definição da animação de piscar */
+@keyframes piscar {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 /* Navegação Responsiva */
@@ -97,23 +129,6 @@ h1, h2, h3 {
 
 h2 {
   margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* Parágrafos e Listas */
-p {
-  margin-top: 1rem;
-}
-
-.section-content h1, .section-content h2 {
-  margin-bottom: 1rem;
-}
-
-.section-content p, .section-content ul {
-  margin-bottom: 1.5rem;
-}
-
-.section-content ul li {
   margin-bottom: 1rem;
 }
 
@@ -219,49 +234,21 @@ p {
   color: #ffffff;
 }
 
-/* Estilo para o contador no canto superior direito sem fundo */
-#contador {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-/* Animação de piscar para os números do contador */
-.contador-numeros {
-  animation: piscar 1s infinite alternate;
-}
-
-/* Centraliza e posiciona a frase logo abaixo dos números e em negrito */
-#contador p {
-  margin-top: 2px; /* Espaço pequeno entre o contador e a frase */
-  font-size: 0.85rem;
-  color: #333;
-  font-weight: bold; /* Define a frase como negrito */
-}
-
-/* Definição da animação de piscar */
-@keyframes piscar {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 /* Responsividade para Dispositivos Menores */
 @media (max-width: 600px) {
   header nav ul {
     flex-direction: column;
   }
-
+  
   .system-options {
     grid-template-columns: 1fr;
+  }
+
+  #contador {
+    position: static;
+    margin-top: 10px;
+    font-size: 0.75rem;
+    text-align: center;
   }
 
   .button {
