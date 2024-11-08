@@ -1,0 +1,12 @@
+/* reset.css - Reseta estilos padrões do navegador para consistência entre diferentes navegadores */
+
+* {
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove espaçamentos padrão */
+  box-sizing: border-box; /* Inclui padding e bordas no tamanho total dos elementos */
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Define a fonte padrão para todo o corpo */
+  line-height: 1.6; /* Melhora a legibilidade com espaçamento entre linhas */
+}
