@@ -18,25 +18,23 @@ const mensagens = {
   gestao: "A gestão condominial eficiente exige ferramentas modernas e eficazes que atendam às necessidades de um mundo cada vez mais conectado e consciente. Uma plataforma digital sustentável e integrada oferece recursos para simplificar as tarefas administrativas, otimizar a comunicação entre moradores e administração, reduzir custos e promover práticas ESG - Ambiental, Social e Governança."
 };
 
-// Função para exibir o popup com a mensagem correspondente ao tipo selecionado
 function mostrarMensagem(tipo) {
   const popup = document.getElementById('popup');
   const popupMessage = document.getElementById('popup-message');
   
-  // Define o conteúdo do popup com base no tipo de mensagem
-  popupMessage.textContent = mensagens[tipo];
-  
-  // Exibe o popup
-  popup.style.display = 'flex';
+  if (popup && popupMessage && mensagens[tipo]) {
+    popupMessage.textContent = mensagens[tipo];
+    popup.style.display = 'flex';
+  }
 }
 
-// Função para fechar o popup
 function fecharPopup() {
   const popup = document.getElementById('popup');
-  
-  // Esconde o popup
-  popup.style.display = 'none';
+  if (popup) {
+    popup.style.display = 'none';
+  }
 }
+
 // Funções do EcoDesign
 function abrirEcoDesign() {
   const popup = document.getElementById('ecoDesignPopup');
@@ -50,10 +48,80 @@ function fecharEcoDesign() {
   document.body.style.overflow = 'auto';
 }
 
-// Adicionar ao event listener existente
+// Event listener para fechar os popups ao clicar fora
 window.addEventListener('click', function(event) {
-  const popup = document.getElementById('ecoDesignPopup');
-  if (event.target === popup) {
-      fecharEcoDesign();
+  const popupMensagem = document.getElementById('popup');
+  const popupEcoDesign = document.getElementById('ecoDesignPopup');
+  
+  // Para o popup de mensagens
+  if (event.target === popupMensagem) {
+    fecharPopup();
   }
+  
+  // Para o popup do EcoDesign
+  if (event.target === popupEcoDesign) {
+    fecharEcoDesign();
+  }
+});
+// Inicializa os contadores
+let contadoresCliques = JSON.parse(localStorage.getItem('contadoresCliques')) || {
+  energiaSolar: 0,
+  aguaChuva: 0,
+  iluminacao: 0,
+  gestao: 0
+};
+
+// Função para atualizar os contadores na tela
+function atualizarContadores() {
+  for (let tipo in contadoresCliques) {
+      const elemento = document.getElementById(`contador-${tipo}`);
+      if (elemento) {
+          elemento.textContent = `${contadoresCliques[tipo]} visualizações`;
+      }
+  }
+}
+
+// Modifica a função mostrarMensagem existente
+function mostrarMensagem(tipo) {
+  const popup = document.getElementById('popup');
+  const popupMessage = document.getElementById('popup-message');
+  
+  // Incrementa o contador
+  contadoresCliques[tipo]++;
+  
+  // Salva no localStorage
+  localStorage.setItem('contadoresCliques', JSON.stringify(contadoresCliques));
+  
+  // Atualiza o display
+  atualizarContadores();
+  
+  if (popup && popupMessage && mensagens[tipo]) {
+      popupMessage.textContent = mensagens[tipo];
+      popup.style.display = 'flex';
+  }
+}
+
+// Carrega os contadores quando a página carrega
+window.addEventListener('load', () => {
+  atualizarContadores();
+  // ... resto do seu código de load existente ...
+});
+function mostrarEstatisticas() {
+  const popup = document.getElementById('estatisticas-popup');
+  popup.style.display = 'flex';
+  atualizarContadores();
+}
+
+function fecharEstatisticas() {
+  const popup = document.getElementById('estatisticas-popup');
+  popup.style.display = 'none';
+}
+
+// Adicionar ao event listener existente de clique fora
+window.addEventListener('click', function(event) {
+  const popup = document.getElementById('estatisticas-popup');
+  if (event.target === popup) {
+      fecharEstatisticas();
+  }
+  // ... seus outros event listeners ...
 });
